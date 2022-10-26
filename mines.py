@@ -12,19 +12,17 @@ numberOfHouses=[]
 for k in range(numberRows*numberRows):
     listVariable.append(0)
 
-#f'a{k}'
-
 print(listVariable)
 
 #random mineha ro mirize to 0ha
 for rn in range(numberRows+1):
-    randomIndex=random.randint(0,24)
+    randomIndex=random.randint(0,numberRows*numberRows)
     listVariable.remove(listVariable[randomIndex])
     listVariable.insert(randomIndex,'*')
 
 #tolid indexha
-for i in range(5):
-    for j in range(5):
+for i in range(numberRows):
+    for j in range(numberRows):
        indexes.append(f'{i}-{j}')
 
 print(indexes)
@@ -34,16 +32,21 @@ res = {indexes[i]: listVariable[i] for i in range(len(indexes))}
 print(res)
 
 #shekl khoneha
-for i in range(numberRows):
-    print('-----'*(numberRows+1),end='')
+for i in range(1,numberRows+1):
+    print(f' {i}',end='..')
+    
+print('')
+
+for i in range(1,numberRows+1):
+    print(' ----'*(numberRows),end='')
     print('-')
+    print(i,end='')
     for j in range(numberRows):
         
-        print(f'| {indexes[-len(indexes)]} ',end='')
-        indexes.remove(indexes[-len(indexes)])  
+        print(f'|   ',end='')
     print('|')
     
-print('-----'*(numberRows+1),end='')
+print(' ----'*(numberRows),end='')
 print('-')
 
 #dastebandi moteghayer dar dastehaye chandtaie be tor mosavi
